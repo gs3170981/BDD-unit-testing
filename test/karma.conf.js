@@ -8,7 +8,7 @@ module.exports = function (config) {
       useIframe: false
     },
     // 这个插件会将每个测试用例的测试结果打印到命令行 console 中。
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
     // 希望执行的测试文件, 这里的文件会经过 preprocessor 处理后，通过 script 便签添加到测试页面中。
     // 更多设置可以查看 https://karma-runner.github.io/2.0/config/files.html
     files: [
@@ -24,18 +24,12 @@ module.exports = function (config) {
       noInfo: true
     },
     coverageReporter: {
-      dir: 'coverage',
+      dir: './coverage',
       reporters: [
-        {
-          type: 'json',
-          subdir: '.',
-          file: 'coverage.json'
-        }, {
-          type: 'lcov',
-          subdir: '.'
-        }, {
-          type: 'text-summary'
-        }
+        // 生成 lcov.info 以及 html 文件，lcov.info 该文件中包含了详细的每个文件，每行，每个函数的执行信息。
+        { type: 'lcov', subdir: '.' },
+        // 在命令行输出简要覆盖率数据
+        { type: 'text-summary' }
       ]
     },
     // 监听文件变动
