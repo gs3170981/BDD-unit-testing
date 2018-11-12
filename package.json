@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "unit": "cross-env BABEL_ENV=test karma start test/karma.conf.js",
-    "test": "npm run unit && ./node_modules/.bin/codecov -t 7371180d-0f24-4fee-adf0-9d3c3bbd0bfc",
+    "codecov": "codecov",
+    "test": "npm run unit && npm run codecov",
     "start": "webpack-dev-server --hot --inline --progress --config webpack.config.js",
     "dev": "webpack-dev-server --hot --inline --progress --config webpack.config.js"
   },
@@ -27,7 +28,6 @@
     "babel-plugin-istanbul": "^5.1.0",
     "babel-preset-env": "^7.0.0-beta.3",
     "chai": "^4.1.2",
-    "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
     "karma": "^3.0.0",
     "karma-chai": "^0.1.0",
