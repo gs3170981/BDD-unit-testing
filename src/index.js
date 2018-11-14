@@ -1,10 +1,10 @@
-function component() {
-    var element = document.createElement('div')
-    element.innerHTML = 'Hello World!'
-    return element
-}
+import Top from './top/index.js'
 
-document.body.appendChild(component())
+function Main() {
+    return document.body.appendChild(Top())
+}
+Main()
+export default Main
 // function add(a, b){
 //     return a + b;
 // }

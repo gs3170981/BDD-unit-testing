@@ -12,9 +12,9 @@ module.exports = function (config) {
     // 希望执行的测试文件, 这里的文件会经过 preprocessor 处理后，通过 script 便签添加到测试页面中。
     // 更多设置可以查看 https://karma-runner.github.io/2.0/config/files.html
     files: [
-      // './index.js'
-      '.././src/**/*.js',
-      './module/**/*.test.js'
+      './index.js'
+      // '.././src/**/*.js',
+      // './module/**/*.test.js'
     ],
     // 使用 webapck 对文件进行编译打包，同时配置 sourcemap 方便调试代码
     preprocessors: {
