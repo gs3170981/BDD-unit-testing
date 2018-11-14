@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "test": "cross-env BABEL_ENV=test karma start test/karma.conf.js",
+    "codecov": "./node_modules/.bin/codecov -t 7371180d-0f24-4fee-adf0-9d3c3bbd0bfc",
     "start": "webpack-dev-server --hot --inline --progress --config webpack.config.js",
     "dev": "webpack-dev-server --hot --inline --progress --config webpack.config.js"
   },
