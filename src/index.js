@@ -5,3 +5,6 @@ function component() {
 }
 
 document.body.appendChild(component())
+// function add(a, b){
+//     return a + b;
+// }
