@@ -1,7 +1,5 @@
 # 指定语言 https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
 language: node_js
-install:
-  - npm install -g codecov
 # 缓存 node_modules 文件夹，不需要每次都下载安装全部 npm 包。
 cache:
   directories:
@@ -14,11 +12,9 @@ branches:
   only:
     - master
 # 要执行的脚本
-env:
-  - CODECOV_TOKEN="7371180d-0f24-4fee-adf0-9d3c3bbd0bfc"
 script:
   - npm run test
-  - codecov -t 7371180d-0f24-4fee-adf0-9d3c3bbd0bfc
+  - ./node_modules/.bin/codecov -t 7371180d-0f24-4fee-adf0-9d3c3bbd0bfc
 # 配置当构建失败的时候发送通知 https://docs.travis-ci.com/user/notifications
 notifications:
   # 设置 TravisBuddy，每当 pull request 构建失败的时候，TravisBuddy 会收到通知
