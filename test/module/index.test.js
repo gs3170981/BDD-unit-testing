@@ -1,16 +1,14 @@
-describe('component function unit test', function () {
-    it('element.innerHTML = Hello World!', function () {
-        // 示例化 Vue, 此时示例对应的 DOM 元素没有在页面中。
-        // const instance = new Vue({
-        //   render: h => h(App),
-        //   components: { App }
-        // }).$mount()
-        var dom = component()
-        expect(dom.innerHTML).to.equal('Hello World!')
+import Top from '../../src/top/index.js'
+import Bottom from '../../src/bottom/index.js'
 
-        // // 手动将 DOM 添加到页面中。
-        // document.body.appendChild(instance.$el)
-        // let h1 = instance.$el.querySelector('.hello h1')
+describe('Top function unit test', function () {
+    it('Top.innerHTML = Hello Top!', function () {
+        let dom = Top()
+        expect(dom.innerHTML).to.equal('Hello Top!')
+    })
+    it('Bottom.innerHTML = Hello Bottom!', function () {
+        let dom = Bottom()
+        expect(dom.innerHTML).to.equal('Hello Bottom!')
     })
 })
 // describe('add function unit test.', function(){

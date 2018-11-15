@@ -13,8 +13,6 @@ module.exports = function (config) {
     // 更多设置可以查看 https://karma-runner.github.io/2.0/config/files.html
     files: [
       './index.js'
-      // '.././src/**/*.js',
-      // './module/**/*.test.js'
     ],
     // 使用 webapck 对文件进行编译打包，同时配置 sourcemap 方便调试代码
     preprocessors: {

@@ -7,11 +7,17 @@
 // const srcContext = require.context('.././src', true, /^\.\/(?!main(\.js)?$)/)
 // srcContext.keys().forEach(srcContext)
 
-import Main from '../src/index'
+import '.././src/index.js'
 
-describe('Main function unit test', function () {
-    it('Main.innerHTML = Hello World!', function () {
-        var dom = Main()
-        expect(dom.innerHTML).to.equal('Hello World!')
+var expect = require('chai').expect // 引入Chai
+
+describe('Top Bottom function unit test', function () {
+    it('Top.innerHTML = Hello Top!', function () {
+        var dom = document.getElementById('top')
+        expect(dom.innerHTML).to.equal('Hello Top!')
+    })
+    it('Bottom.innerHTML = Hello Bottom!', function () {
+        var dom = document.getElementById('bottom')
+        expect(dom.innerHTML).to.equal('Hello Bottom!')
     })
 })

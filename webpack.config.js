@@ -1,41 +1,71 @@
-const webpack = require('webpack');
-const path = require('path');
-
-module.exports = {
-    entry: __dirname + '/src/index.js',
-    output: {
-        path: __dirname + '/dist', // webpack 本地打包路径
-        filename: "bundle.js",
-        path: path.resolve(__dirname, 'dist'),
-        // 线上发布路径，和path最好保持一致，html页面引入script路径
-        publicPath: '/dist/'
-    },
-    devServer: {
-        port: 9000
-    },
-    module: {
-        rules: [{
-            test: /\.css$/,
-            loader: 'style!css'
-        }, {
-            test: /\.less$/,
-            loader: 'style!css!less?sourceMap'
-        }, {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            // 可以单独在当前目录下配置.babelrc，也可以在这里配置
-            query: {
-                presets: ['env'],
-                plugins: ['istanbul']
-            },
-            // 排除 node_modules 下不需要转换的文件，可以加快编译
-            exclude: /node_modules/
-        }, {
-            test: /\.(png|jpg)$/,
-            loader: 'url-loader?limit=8192'
-        }, {
-            test: /\.tpl$/,
-            loader: 'mustache'
-        }]
+const path = require('path')
+// css抽离为一个文件
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+// 压缩copyHtml
+const HtmlWebPackPlugin = require("html-webpack-plugin")
+// 先清理dist
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+module.exports = (env, argv) => {
+    const devMode = argv.mode !== 'production'
+    return {
+        entry: [
+            "babel-polyfill",
+            path.join(__dirname, './src/index.js')
+        ],
+        output: {
+            path: path.resolve(__dirname, './dist'),
+            filename: 'build.js'
+        },
+        module: {
+            rules: [{
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            }, {
+                test: /\.html$/,
+                use: [{
+                    loader: "html-loader",
+                    options: {
+                        minimize: true
+                    }
+                }]
+            }, {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            }, {
+                test: /\.less$/,
+                use: [
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader',
+                ]
+            }, {
+                test: /\.tpl$/,
+                loader: 'mustache'
+            }, {
+                test: /\.css$/,
+                use: [
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader'
+                ]
+            }]
+        },
+        plugins: [
+            // ...,
+            new MiniCssExtractPlugin({
+                filename: "[name].css",
+                chunkFilename: "[id].css"
+            }),
+            new HtmlWebPackPlugin({
+                template: "./public/index.html"
+            }),
+            new CleanWebpackPlugin(['dist'])
+        ]
     }
 }

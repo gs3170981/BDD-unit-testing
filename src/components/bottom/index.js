@@ -1,5 +1,6 @@
 export default function () {
     var element = document.createElement('h1')
-    element.innerHTML = 'Hello World!'
+    element.id = 'bottom'
+    element.innerHTML = 'Hello Bottom!'
     return element
 }
