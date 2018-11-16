@@ -20,6 +20,7 @@ module.exports = function (config) {
     ],
     // 使用 webapck 对文件进行编译打包，同时配置 sourcemap 方便调试代码
     preprocessors: {
+      // './index.js': ['webpack', 'sourcemap', 'coverage']
       './index.js': ['webpack', 'sourcemap']
     },
     // wepack 配置项
@@ -29,6 +30,7 @@ module.exports = function (config) {
     },
     coverageReporter: {
       dir: './coverage',
+      // check 覆盖率声明
       reporters: [
         // 生成 lcov.info 以及 html 文件，lcov.info 该文件中包含了详细的每个文件，每行，每个函数的执行信息。
         { type: 'lcov', subdir: '.' },

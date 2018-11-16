@@ -10,6 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), //定位，输出文件的目标路径
         filename: '[name].js'
     },
+    devtool: 'inline-source-map',
     module: { //模块的相关配置
         rules: [ //根据文件的后缀提供一个loader,解析规则
             {
@@ -20,6 +21,16 @@ module.exports = {
                 // exclude:[], 不匹配选项（优先级高于test和include）
                 use: 'babel-loader'
             },
+            // {
+            //     test: /\.js$/,
+            //     enforce: 'post',
+            //     exclude: /node_modules|\.test\.js$/,
+            //     use: {
+            //         loader: 'istanbul-instrumenter-loader',
+            //         options: { esModules: true }
+            //     },
+            //     // include: path.resolve('src/components/')
+            // },
             {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({

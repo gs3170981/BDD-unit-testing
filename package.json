@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "main": "main.js",
   "license": "ISC",
+  "keywords": [
+    "Mocha",
+    "Karma",
+    "Chai",
+    "Chai-Cl",
+    "Istanbul",
+    "Codeco"
+  ],
+  "author": "gs3170981",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --open --mode development --inline --hot",
