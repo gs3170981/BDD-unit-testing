@@ -5,25 +5,25 @@
   "license": "ISC",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open",
+    "dev": "webpack-dev-server --open --mode development --inline --hot",
     "start": "npm run dev",
     "test": "cross-env BABEL_ENV=test karma start test/karma.conf.js",
     "codecov": "codecov -t 7371180d-0f24-4fee-adf0-9d3c3bbd0bfc"
   },
-  "devDependencies": {
-    "@babel/core": "^7.1.6",
+  "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-istanbul": "^5.0.1",
+    "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.22.0",
     "chai": "^4.1.2",
     "clean-webpack-plugin": "^1.0.0",
     "codecov": "^3.1.0",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "karma": "^3.0.0",
     "karma-chai": "^0.1.0",
@@ -36,17 +36,10 @@
     "karma-webpack": "^3.0.5",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
-    "mini-css-extract-plugin": "^0.4.4",
     "mocha": "^5.2.0",
-    "mustache-loader": "^1.4.1",
-    "node-sass": "^4.10.0",
-    "postcss-loader": "^3.0.0",
-    "style-loader": "^0.23.1",
+    "transform-runtime": "^0.0.0",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
-  },
-  "dependencies": {
-    "yarn": "^1.12.3"
   }
 }

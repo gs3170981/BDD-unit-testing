@@ -7,7 +7,9 @@
 // const srcContext = require.context('.././src', true, /^\.\/(?!main(\.js)?$)/)
 // srcContext.keys().forEach(srcContext)
 
-import '.././src/index.js'
+import '../src/index.js'
+
+// import Test from '../src/components/'
 
 var expect = require('chai').expect // 引入Chai
 

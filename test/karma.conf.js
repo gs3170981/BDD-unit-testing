@@ -1,3 +1,5 @@
+var webpackConfig = require('../webpack.config')
+
 module.exports = function (config) {
   config.set({
     // 指定要运行测试的浏览器，可以指定多个。必须要安装对应的加载器(launcher)，karma 会在调起本地的浏览器。
@@ -19,7 +21,7 @@ module.exports = function (config) {
       './index.js': ['webpack', 'sourcemap']
     },
     // wepack 配置项
-    // webpack: webpackConfig,
+    webpack: webpackConfig,
     webpackMiddleware: {
       noInfo: true
     },
