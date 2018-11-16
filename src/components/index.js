@@ -1,5 +1,5 @@
-import Top from './top/index.js'
-import Bottom from './bottom/index.js'
+import Top from 'components/top/index.js'
+import Bottom from 'components/bottom/index.js'
 
 export default class Test {
     constructor (props) {

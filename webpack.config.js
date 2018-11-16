@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 // const CopyWebpackPlugin = require('copy-webpack-plugin')
 // console.log(path.resolve(__dirname,'dist')); //物理地址拼接
 module.exports = {
-    entry: './src/index.js', //入口文件  在vue-cli main.js
+    entry: './src/main.js', //入口文件  在vue-cli main.js
     output: { //webpack如何输出
         path: path.resolve(__dirname, 'dist'), //定位，输出文件的目标路径
         filename: '[name].js'
@@ -42,7 +42,9 @@ module.exports = {
         // modules: [ ]//模块的查找目录 配置其他的css等文件
         extensions: [".js", ".json", ".jsx", ".less", ".css"], //用到文件的扩展名
         alias: { //模快别名列表
-            // utils: path.resolve(__dirname, 'src/utils')
+            '@': path.resolve(__dirname, 'src'),
+            'components': path.resolve(__dirname, 'src/components'),
+            'test_components': path.resolve(__dirname, 'test/module')
         }
     },
     plugins: [ //插进的引用, 压缩，分离美化
